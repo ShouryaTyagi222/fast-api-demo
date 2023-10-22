@@ -1,14 +1,14 @@
 {
-   "name": "IIITH OCR - Kannada - SceneText",
-   "version": "v2.0",
-   "description": "IIITH-OCR is a CNN-RNN with spatial transformation network based OCR Model that is trained on word level images from various internal datasets.",
-   "refUrl": "https://www.iiit.ac.in/",
+   "name": "mememememeem",
+   "version": "v0.0",
+   "description": "memememe Description",
+   "refUrl": "https://github.com/ShouryaTyagi222/fast-api-demo",
    "task": {
        "type": "ocr"
    },
    "languages": [
        {
-           "sourceLanguage": "kn"
+           "sourceLanguage": "en"
        }
    ],
    "license": "mit",
@@ -16,42 +16,32 @@
        "general"
    ],
    "submitter": {
-       "name": "IIITH",
-       "aboutMe": "International Institute of Information Technology, Hyderabad",
+       "name": "me",
+       "aboutMe": "memememe organisation.com",
        "team": [
            {
-               "name": "CV Jawahar",
-               "aboutMe": "PI, IIITH"
-           },
-           {
-               "name": "Ajoy Mondal",
-               "aboutMe": "PI, IIITH"
-           },
-           {
-               "name": "Krishna Tulsyan",
-               "aboutMe": "Tech Lead, IIITH"
+               "name": "memeeme",
+               "aboutMe": "me"
            }
        ]
    },
    "inferenceEndPoint": {
-       "callbackUrl": "https://ilocr.iiit.ac.in/ocr/ulca/v2/scenetext",
+       "callbackUrl": "https://goauernversunv.onrender.com",
        "schema": {
            "taskType": "ocr",
            "request": {
-               "image": [
-                   {
-                       "imageUri": "http://bhasha.iiit.ac.in/bhashini-iiith/static/ulca_examples/kannada_word_image1.jpg"
-                   }
-               ],
-               "config": {
-                   "languages": {
-                       "sourceLanguage": "kn"
-                   }
-               }
-           }
+                "imageUri" : [
+                    "https://miro.medium.com/v2/resize:fit:640/format:webp/1*dggnQA_B-mJTP8I-abv6ag.png"
+                ],
+                "config": {
+                    "language": {
+                        "sourceLanguage" : "en"
+                    }
+                }
+            }
        }
    },
    "trainingDataset": {
-       "description": "Various Internal Datasets"
+       "description": "mememememememememe Datasets"
    }
 }
