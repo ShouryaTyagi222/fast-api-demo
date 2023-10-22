@@ -7,11 +7,23 @@
 # IMPORTING THE LIBRARIES
 from fastapi import FastAPI
 from pydantic import BaseModel
-import pytesseract as pt
 from PIL import Image
+from doctr.io import DocumentFile
+from doctr.models import ocr_predictor
 import requests
 
 app=FastAPI()
+
+# get doctr objects
+def get_doctr_objs(json_op):
+    result=''
+    for page in json_op['pages']:
+        for block in page['blocks']:
+            for lines in block['lines']:
+                for word in lines['words']:
+                    result+=word['value']+' '
+                result+='\n'
+    return result
 
 class Item(BaseModel):
     image: list
@@ -28,20 +40,26 @@ async def scoring_endpoint(item:Item):
     item=item.dict()
     image_url=item['image'][0]['imageUri']
     language=item['config']['languages'][0]['sourceLanguage']
+    file_path='temp_image.png'
 
-    # Image Loading
     img = Image.open(requests.get(image_url, stream=True).raw)
-    
+    img.save(file_path)
+
     # OCR on the image
-    output= pt.image_to_string(img)
+    doc = DocumentFile.from_images(file_path)
+
+    # Create an OCR predictor object with the desired architectures
+    model = ocr_predictor(pretrained=True)
+
+    # Run the model on the document and get the output
+    result = model(doc)
+    output = result.export()
+
+    # Print the output or visualize it
+    output=get_doctr_objs(output)
+    print(output)
     message='success'
     status=200
 
     # Sending the Response
     return {'output':[{'source':output}],'status':{'statusCode':status,'message':message}}
-
-
-
-
-# to deploy on deta-space
-# iwr https://get.deta.dev/space-cli.ps1 -useb | iex
