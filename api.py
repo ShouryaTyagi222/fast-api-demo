@@ -37,4 +37,4 @@ async def scoring_endpoint(item:Item):
     status=200
 
     # Sending the Response
-    return {'output':[{'source':output}],'status':{'statusCode':status,'message':message}}
+    return {'output':[{'source':output}]}
