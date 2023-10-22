@@ -1,0 +1,51 @@
+{
+    "name": "OCR_model",
+    "version": "v1.0",
+    "description": "Sample OCR Model",
+    "refUrl": "Reg URL of the Model",
+    "task": {
+        "type": "ocr"
+    },
+    "languages": [
+        {
+            "sourceLanguage": "en"
+        }
+    ],
+    "license": "mit",
+    "licenseUrl": "url of the custom url",
+    "domain": [
+        "general"
+    ],
+    "submitter": {
+        "name": "IITB",
+        "aboutMe": "Indian Institute of Technology, Bombay",
+        "team": [
+            {
+                "name": "Name",
+                "aboutMe": "Designation"
+            }
+        ]
+    },
+    "inferenceEndPoint": {
+        "callbackUrl": "https://ilocr.iiit.ac.in/ocr/ulca/v2/handwritten", 
+        "isMultilingualEnabled": false,
+        "schema": {
+            "taskType": "ocr",
+            "request": {
+                "image": [
+                    {
+                        "imageUri": "http://bhasha.iiit.ac.in/bhashini-iiith/static/ulca_examples/bengali_word_image1.jpg"
+                    }
+                ],
+                "config": {
+                    "languages": {
+                        "sourceLanguage": "en"
+                    }
+                }
+            }
+        }
+    },
+    "trainingDataset": {
+        "description": "IIITH Dataset"
+    }
+}
