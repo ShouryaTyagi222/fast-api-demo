@@ -1,78 +1,54 @@
 {
-    "name":"AI4Bharat Transliteration (IndicXlit) : English-Malayalam",
-    "version":"v1.0",
-    "description":"IndicXlit is a Transformer-based multilingual transliteration model, trained on Aksharantar dataset which is the largest publicly available parallel transliteration corpora collection for Indic languages at the time of writing (20 May 2022). It is used to convert any roman text written in Indian language (like Hinglish) to the native Indic-script (like Devanagari for Hindi). It supports 21 Indic languages: Assamese, Bangla, Bodo, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Oriya, Panjabi, Sanskrit, Sindhi, Sinhala, Tamil, Telugu, Urdu.",
-    "refUrl":"https://github.com/AI4Bharat/IndicXlit",
-    "task":{
-       "type":"transliteration"
+    "name": "Anuvaad dummy Multi OCR-1",
+    "version": "v1.0",
+    "description": "Anuvaad OCR aims to host tools for image to text conversion with the goal to enable automation of digitization of scanned documents belonging to Indian languages. We have built upon the open-source OCR engine Tesseract 4.0.  We have done custom training for Hindi and  Tamil and have significantly reduced the errors for these language models as compared to the ones available in the Tesseract repository. Work for other Indian languages is in progress but the service can still be used for English, Bengali, Telugu, Kannada and Malayalam with Tesseract base models.",
+    "refUrl": "https://github.com/project-anuvaad/anuvaad/tree/develop/anuvaad-etl/anuvaad-extractor/document-processor/ocr/tesseract_ulca",
+    "task": {
+        "type": "ocr"
     },
-    "languages":[
-       {
-          "sourceLanguage":"en",
-          "targetLanguage":"ml"
-       }
+    "languages": [
+        {
+            "sourceLanguage": "bn"
+        }
     ],
-    "license":"mit",
-    "domain":[
-       "general"
+    "license": "mit",
+    "domain": [
+        "general"
     ],
-    "submitter":{
-       "name":"AI4Bharat",
-       "aboutMe":"A non-profit, open-source community of engineers, domain experts, policy makers, and academicians collaborating to build AI solutions to solve India’s problems",
-       "team": [
-          {
-             "name":"Yash Madhani",
-             "aboutMe":"AI4Bharat, IIT-Madras"
-          },
-          {
-             "name":"Sushane Parthan",
-             "aboutMe":"AI4Bharat, IIT-Madras"
-          },
-          {
-             "name":"Priyanka Bedekar",
-             "aboutMe":"AI4Bharat, IIT-Madras"
-          },
-          {
-             "name":"Ruchi Khapra",
-             "aboutMe":"AI4Bharat, One Fourth Labs"
-          },
-          {
-             "name":"Anoop Kunchukuttan",
-             "aboutMe":"AI4Bharat, Microsoft"
-          },
-          {
-             "name":"Pratyush Kumar",
-             "aboutMe":"AI4Bharat, IITM, Microsoft"
-          },
-          {
-             "name":"Mitesh Shantadevi Khapra",
-             "aboutMe":"RBCDSAI, AI4Bharat, IITM"
-          }
-       ]
-    },
-    "inferenceEndPoint":{
-       "callbackUrl":"https://xlit-api.ai4bharat.org/transliterate",
-       "schema":{
-          "taskType":"transliteration",
-          "request":{
-             "input":[
-                {
-                   "source":"Bharatham"
+    "submitter": {
+        "name": "hehehehe",
+        "aboutMe": "Project Anuvaad has been conceptualised to provide translation capabilities for Indic languages. Project Anuvaad is open sourced under the MIT license and is funded by EkStep foundation.",
+        "team": [
+            {
+                "name": "Naresh Saini",
+                "oauthId": {
+                    "oauthId": "naresh.kumar@tarento.com",
+                    "provider": "google"
                 }
-             ],
-             "config":{
-                "isSentence":false,
-                "numSuggestions":5,
-                "language":{
-                   "sourceLanguage":"en",
-                   "targetLanguage":"ml"
-                }
-             }
-          }
-       }
+            }
+        ]
     },
-    "trainingDataset":{
-       "datasetId":"2398749282",
-       "description":"Aksharantar is the largest publicly available transliteration dataset for 21 Indic languages. The corpus has 26M Indic language-English transliteration pairs."
+    "inferenceEndPoint": {
+        "callbackUrl": "https://goauernversunv.onrender.com",
+        "schema": {
+            "taskType": "ocr",
+            "request": {
+                "image": [
+                    {
+                        "imageUri": "https://anuvaad-raw-datasets.s3-us-west-2.amazonaws.com/anuvaad_ocr_bengali.jpg"
+                    }
+                ],
+                "config": {
+                    "languages": [
+                        {
+                            "sourceLanguage": "bn"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "trainingDataset": {
+        "description": "Ncert books and Judgement(HCs+SC)+synthetic data(11 fonts), 47972 manually verified lines for Tamil and 28600 manually verified lines Hindi  "
     }
- }
+}
