@@ -39,3 +39,9 @@ async def scoring_endpoint(item:Item):
 
     # Sending the Response
     return {'output':[{'source':output}],'status':{'statusCode':status,'message':message}}
+
+
+
+
+# to deploy on deta-space
+# iwr https://get.deta.dev/space-cli.ps1 -useb | iex
