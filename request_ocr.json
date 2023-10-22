@@ -1,10 +1,14 @@
 {
-    "imageUri" : [
-        "https://miro.medium.com/v2/resize:fit:640/format:webp/1*dggnQA_B-mJTP8I-abv6ag.png"
+    "image": [
+        {
+            "imageUri": "https://miro.medium.com/v2/resize:fit:640/format:webp/1*dggnQA_B-mJTP8I-abv6ag.png"
+        }
     ],
     "config": {
-        "language": {
-               "sourceLanguage" : "hi"
-        }
+        "languages": [
+            {
+                "sourceLanguage": "hi"
+            }
+        ]
     }
 }

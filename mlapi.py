@@ -26,7 +26,7 @@ def get_doctr_objs(json_op):
     return result
 
 class Item(BaseModel):
-    imageUri: list
+    image: list
     config : dict
 
 @app.get('/get')
@@ -38,8 +38,8 @@ async def scoring_endpoint(item:Item):
 
     # Input Extraction image_url and language
     item=item.dict()
-    image_url=item['imageUri'][0]
-    language=item['config']['language']['sourceLanguage']
+    image_url=item['image'][0]['imageUri']
+    language=item['config']['languages'][0]['sourceLanguage']
     file_path='temp_image.png'
 
     img = Image.open(requests.get(image_url, stream=True).raw)
@@ -58,8 +58,6 @@ async def scoring_endpoint(item:Item):
     # Print the output or visualize it
     output=get_doctr_objs(output)
     print(output)
-    message='success'
-    status=200
 
     # Sending the Response
     return {'output':[{'source':output}]}
