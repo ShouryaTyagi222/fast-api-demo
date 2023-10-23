@@ -2,7 +2,7 @@
 
 # to run `uvicorn mlapi:app --reload`
 
-# to open swagger `http://127.0.0.1:8000/docs`
+# to open swagger for the api `http://127.0.0.1:8000/docs`
 
 # IMPORTING THE LIBRARIES
 from fastapi import FastAPI
@@ -36,26 +36,23 @@ async def get_func():
 @app.post('/')
 async def scoring_endpoint(item:Item):
 
-    # Input Extraction image_url and language
+    # Input Extraction: image_url and language
     item=item.dict()
     image_url=item['image'][0]['imageUri']
     language=item['config']['languages'][0]['sourceLanguage']
-    file_path='temp_image.png'
+    temp_file_path='temp_image.png'   # creating a temp image on the image_url to be used with model
 
+    # opening the image and saving
     img = Image.open(requests.get(image_url, stream=True).raw)
-    img.save(file_path)
+    img.save(temp_file_path)
 
     # OCR on the image
-    doc = DocumentFile.from_images(file_path)
-
-    # Create an OCR predictor object with the desired architectures
+    doc = DocumentFile.from_images(temp_file_path)
     model = ocr_predictor(pretrained=True)
-
-    # Run the model on the document and get the output
     result = model(doc)
     output = result.export()
 
-    # Print the output or visualize it
+    # preparing the output
     output=get_doctr_objs(output)
     print(output)
 
