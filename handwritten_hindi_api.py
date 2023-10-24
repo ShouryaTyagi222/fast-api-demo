@@ -1,6 +1,6 @@
 # pip install uvicorn gunicorn fastapi pydantic pandas
 
-# to run `uvicorn mlapi:app --reload`
+# to run `uvicorn handwritten_hindi_api:app --reload`
 
 # to open swagger for the api `http://127.0.0.1:8000/docs`
 

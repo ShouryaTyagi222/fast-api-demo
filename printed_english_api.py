@@ -8,6 +8,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from PIL import Image
+import pytesseract
 import requests
 
 app=FastAPI()
@@ -32,9 +33,7 @@ async def scoring_endpoint(item:Item):
     img = Image.open(requests.get(image_url, stream=True).raw)
     
     # OCR on the image
-    output= f'image_url: {image_url} , language: {language} '
-    message='success'
-    status=200
+    output= pytesseract.image_to_string(img,config='--oem 3 --psm 6',lang='eng')
 
     # Sending the Response
     return {'output':[{'source':output}]}

@@ -1,10 +1,10 @@
 # pip install uvicorn gunicorn fastapi pydantic pandas
 
-# to run `uvicorn handwritten_gujarati_api:app --reload`
+# to run `uvicorn handwritten_odia_api:app --reload`
 
 # to open swagger for the api `http://127.0.0.1:8000/docs`
 
-# https://lh6.ggpht.com/-ZdNisG4hbws/U_gpgFkpzDI/AAAAAAAABwI/ywVKcBuittw/s640/New%252520Doc%25252064_1.jpg
+# https://iasexamportal.com/sites/default/files/upsc-main-2020-odia-paper-2.jpg
 
 # IMPORTING THE LIBRARIES
 import warnings
@@ -31,8 +31,8 @@ def initialize_handwritten_models():
     det_predictor = DetectionPredictor(PreProcessor((1024, 1024), batch_size=1, mean=(0.798, 0.785, 0.772), std=(0.264, 0.2749, 0.287)), det_model)
 
     #Recognition model
-    reco_model = crnn_vgg16_bn(pretrained=False, vocab='૮લઔ૨સખાઑઈઋૐઓવૄ૦઼ઁનઞઊ૫ીશફણ૬૭બ૧રળૌુઠઐઉષપેઇઅૃઝજૉક૱૯ગઍદો૪ૅએંહડઘ૩ૂછઙઃઽટતધિૈયઢ્આમથચભ-')
-    reco_param = torch.load(r'E:\IITB_OCR\crnn_vgg16_bn_handwritten_gujarati.pt', map_location="cpu")
+    reco_model = crnn_vgg16_bn(pretrained=False, vocab=  'ଖ୯୬ୋଓଞ୍ଶ୪ଣଥଚରୄତଃେ୮ଆକଵୂନଦ୰ୖୢଜଉଳଅଁଲଯଔପ୭ଷଢଡ଼ଊୟମିୁ୧ଂ଼ୀବଟଭଢ଼୦ଘଠୗ୫ୡାଐ୨ଙହଈୱ୩ୃଛଏୌଗଫସଇଧଡଝୈୣୠଋ-।')
+    reco_param = torch.load(r'E:\IITB_OCR\crnn_vgg16_bn_handwritten_odia.pt', map_location="cpu")
     reco_model.load_state_dict(reco_param)
     reco_predictor = RecognitionPredictor(PreProcessor((32, 128), preserve_aspect_ratio=True, batch_size=1, mean=(0.694, 0.695, 0.693), std=(0.299, 0.296, 0.301)), reco_model)
 

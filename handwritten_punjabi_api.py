@@ -1,10 +1,10 @@
 # pip install uvicorn gunicorn fastapi pydantic pandas
 
-# to run `uvicorn mlapi:app --reload`
+# to run `uvicorn handwritten_punjabi_api:app --reload`
 
 # to open swagger for the api `http://127.0.0.1:8000/docs`
 
-# https://www.pdffiller.com/preview/83/972/83972343.png
+# http://bhasha.iiit.ac.in/bhashini-iiith/static/ulca_examples/punjabi_word_image1.jpg
 
 # IMPORTING THE LIBRARIES
 import warnings
